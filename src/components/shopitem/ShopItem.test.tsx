@@ -43,7 +43,7 @@ describe("Given App component", () => {
                     "https://thumb.pccomponentes.com/w-530-530/articles/82/826902/1449-pccom-bronze-amd-ryzen-7-5700g-16gb-500gb-ssd-1tb.jpg",
                 details: {
                     RAM: "8GB",
-                    "Hard Drive": "250GB SSD",
+                    "Hard Drive": "250GB SSSD",
                     "Graphic Card": "GTX 3000",
                 },
             };
