@@ -8,6 +8,6 @@ export interface IShopItem {
     details: {
         RAM: string;
         "Hard Drive": string;
-        "Graphic Card": string;
+        "Graphic Card"?: string;
     };
 }

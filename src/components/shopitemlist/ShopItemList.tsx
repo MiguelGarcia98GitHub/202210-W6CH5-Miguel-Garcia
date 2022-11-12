@@ -1,5 +1,4 @@
 /* eslint-disable array-callback-return */
-import { useShopItems } from "../../redux/hooks/useShopItems";
 import { ShopItem } from "../shopitem/ShopItem";
 import { useState, useEffect } from "react";
 import { IShopItem } from "./../../models/ShopItem";
