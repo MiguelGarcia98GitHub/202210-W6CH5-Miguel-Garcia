@@ -1,3 +1,4 @@
+import { Cartitem } from "../cartitem/CartItem";
 import { useShopItems } from "./../../redux/hooks/useShopItems";
 export const Cart = () => {
     const { shopItems } = useShopItems();
@@ -5,12 +6,9 @@ export const Cart = () => {
     return (
         <section>
             <ul>
+                <span>CART</span>
                 {shopItems.map((item) => {
-                    return (
-                        <li key={item.id}>
-                            {item.name} <button>-</button>{" "}
-                        </li>
-                    );
+                    return <Cartitem key={item.id} item={item} />;
                 })}
             </ul>
         </section>

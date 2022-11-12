@@ -1,3 +1,5 @@
+import { IShopItem } from "../../models/ShopItem";
+
 export class ShopItemsRepository {
     url: string;
     constructor(url = "https://w6ch5-backend.onrender.com/cart") {
@@ -19,10 +21,10 @@ export class ShopItemsRepository {
     }
 
     // create / post
-    create(task: Object) {
+    create(shopItem: IShopItem) {
         return fetch(this.url, {
             method: "POST",
-            body: JSON.stringify(task),
+            body: JSON.stringify(shopItem),
             headers: {
                 "content-type": "application/json",
             },
@@ -32,14 +34,14 @@ export class ShopItemsRepository {
         });
     }
 
-    // // delete
-    // delete(character: Object) {
-    //     return fetch(`${this.url}/${character.id}`, {
-    //         method: "DELETE",
-    //     }).then((response) => {
-    //         if (!response.ok) throw this.createError(response);
-    //     });
-    // }
+    // delete
+    delete(shopItem: IShopItem) {
+        return fetch(`${this.url}/${shopItem.id}`, {
+            method: "DELETE",
+        }).then((response) => {
+            if (!response.ok) throw this.createError(response);
+        });
+    }
 
     // // update / patch
     // update(partialTask: Object) {
