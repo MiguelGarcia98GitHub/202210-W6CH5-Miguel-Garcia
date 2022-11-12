@@ -1,7 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
+import { shopItemsReducer } from "../reducer/reducer";
 
 export const appStore = configureStore({
-    reducer: {},
+    reducer: {
+        shopItems: shopItemsReducer,
+    },
 });
 
 export type rootStore = typeof appStore;
