@@ -6,7 +6,6 @@ import { IShopItem } from './../../models/ShopItem';
 export const ShopItemList = () => {
     const currentPath = window.location.pathname;
     const [externalAPIData, setExternalAPIData] = useState([]);
-    // const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         async function getExternalAPIData() {
@@ -22,12 +21,7 @@ export const ShopItemList = () => {
 
     return (
         <ul>
-            {externalAPIData.map((item: IShopItem) => {
-                return <ShopItem key={item.id} item={item} />;
-            })}
-
             {currentPath === '/offers' &&
-                // !loading &&
                 externalAPIData.map((item: IShopItem) => {
                     if (item.offer) {
                         return <ShopItem key={item.id} item={item} />;
@@ -35,7 +29,6 @@ export const ShopItemList = () => {
                 })}
 
             {currentPath === '/phones' &&
-                // !loading &&
                 externalAPIData.map((item: IShopItem) => {
                     if (item.category === 'phone') {
                         return <ShopItem key={item.id} item={item} />;
@@ -43,7 +36,6 @@ export const ShopItemList = () => {
                 })}
 
             {currentPath === '/computers' &&
-                // !loading &&
                 externalAPIData.map((item: IShopItem) => {
                     if (item.category === 'computer') {
                         return <ShopItem key={item.id} item={item} />;
