@@ -14,21 +14,19 @@ export const useShopItems = () => {
     useEffect(() => {
         apiShop
             .getAll()
-            .then((shopItems) => dispatcher(ac.loadActionCreator(shopItems)))
-            .catch((error: Error) => console.log(error.name, error.message));
+            .then((shopItems) => dispatcher(ac.loadActionCreator(shopItems)));
     }, [apiShop, dispatcher]);
 
     const handleAdd = (newShopItem: IShopItem) => {
         apiShop
             .create(newShopItem)
-            .then((item: IShopItem) => dispatcher(ac.addActionCreator(item)))
-            .catch((error: Error) => console.log(error.name, error.message));
+            .then((item: IShopItem) => dispatcher(ac.addActionCreator(item)));
     };
 
     const handleDelete = (shopItem: IShopItem) => {
         apiShop
             .delete(shopItem)
-            .then((response) => dispatcher(ac.deleteActionCreator(shopItem)));
+            .then(() => dispatcher(ac.deleteActionCreator(shopItem)));
     };
 
     return {
