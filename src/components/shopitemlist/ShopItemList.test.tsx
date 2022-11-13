@@ -1,9 +1,8 @@
 import { Provider } from 'react-redux';
 import { MemoryRouter as Router } from 'react-router-dom';
 import { ShopItemList } from './ShopItemList';
-import { act, render } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { appStore } from '../../redux/store/store';
-import React from 'react';
 
 // PREGUNTAR TEST
 describe('Given ShopItemList component', () => {
