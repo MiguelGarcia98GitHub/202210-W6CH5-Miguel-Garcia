@@ -1,9 +1,9 @@
 import { Cartitem } from "./CartItem";
 import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 import { MemoryRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
 import { appStore } from "./../../redux/store/store";
+import userEvent from "@testing-library/user-event";
 
 describe("Given the the CartItem component", () => {
     describe("When we render the item", () => {
@@ -22,6 +22,8 @@ describe("Given the the CartItem component", () => {
                 },
             };
 
+            const shopItems = [mockItem];
+
             render(
                 <Router>
                     <Provider store={appStore}>
@@ -30,6 +32,7 @@ describe("Given the the CartItem component", () => {
                 </Router>
             );
 
+            userEvent.click(screen.getByRole("button"));
             expect(screen.getByText(/TurboPhone/i)).toBeInTheDocument();
         });
     });

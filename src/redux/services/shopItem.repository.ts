@@ -7,7 +7,10 @@ export class ShopItemsRepository {
     }
 
     createError(response: Response) {
-        return "error";
+        const message = `Error ${response.status}: ${response.statusText}`;
+        const error = new Error(message);
+        error.name = "HTTPError";
+        return error;
     }
 
     // read / get

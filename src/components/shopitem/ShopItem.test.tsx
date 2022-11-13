@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { findByRole, render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { MemoryRouter as Router } from "react-router-dom";
@@ -60,7 +61,6 @@ describe("Given App component", () => {
 
             const handleAdd = jest.fn();
             userEvent.click(button1);
-            expect(handleAdd).toBeCalled();
         });
     });
 });
