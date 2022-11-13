@@ -1,7 +1,7 @@
 import { Provider } from 'react-redux';
 import { MemoryRouter as Router } from 'react-router-dom';
 import { ShopItemList } from './ShopItemList';
-import { act, render, waitFor } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { appStore } from '../../redux/store/store';
 
 // PREGUNTAR TEST
@@ -48,19 +48,15 @@ describe('Given ShopItemList component', () => {
     };
 
     test('when we render it', () => {
-        global.window.location.pathname = '/offers';
+        window.location.pathname = '/offers';
 
         global.fetch = jest.fn().mockResolvedValue(
             Promise.resolve({
-                json: () => Promise.resolve([mockItem1, mockItem2, mockItem3]),
+                json: jest
+                    .fn()
+                    .mockResolvedValue([mockItem1, mockItem2, mockItem3]),
             })
         );
-
-        // global.fetch = jest.fn().mockResolvedValue({
-        //     json: jest
-        //         .fn()
-        //         .mockResolvedValue([mockItem1, mockItem2, mockItem3]),
-        // });
 
         render(
             <>

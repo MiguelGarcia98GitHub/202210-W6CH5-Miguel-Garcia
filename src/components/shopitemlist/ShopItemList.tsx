@@ -13,7 +13,6 @@ export const ShopItemList = () => {
             fetch(`https://w6ch5-backend.onrender.com/items`)
                 .then((response) => response.json())
                 .then((data) => {
-                    console.log(data);
                     setExternalAPIData(data);
                     // setLoading(false);
                 });
@@ -23,6 +22,10 @@ export const ShopItemList = () => {
 
     return (
         <ul>
+            {externalAPIData.map((item: IShopItem) => {
+                return <ShopItem key={item.id} item={item} />;
+            })}
+
             {currentPath === '/offers' &&
                 // !loading &&
                 externalAPIData.map((item: IShopItem) => {
